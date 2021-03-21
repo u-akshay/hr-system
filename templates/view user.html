@@ -1,0 +1,29 @@
+{% extends 'admin_panel.html' %}
+{% block body %}
+    <body>
+<form id="form1" name="form1" method="post" action="">
+<br/>
+    <br/>
+  <table class="table table-bord">
+
+    <tr>
+      <th width="47">Image</th>
+      <th width="16">ID</th>
+      <th width="37">Name</th>
+      <th width="45">Gender</th>
+      <th width="33">Email</th>
+    </tr>
+
+      {%for i in data%}
+    <tr>
+      <td><img src="/static/photos/{{ i['photo'] }}" alt="No image" width="100px" hight="100px"/></td>
+      <td>&nbsp;{{ i['userID'] }}</td>
+      <td> {{ i['Name'] }}&nbsp;</td>
+      <td> {{ i['gender'] }}</td>
+      <td> {{ i['email'] }}&nbsp;</td>
+    </tr>
+      {% endfor %}
+
+  </table>
+</form>
+{% endblock %}

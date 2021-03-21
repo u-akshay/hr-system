@@ -1,0 +1,52 @@
+{% extends 'admin_panel.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bord">
+    <tr>
+      <th>Sl_No</th>
+      <th>Company name</th>
+      <th>Photo</th>
+      <th>Place</th>
+      <th>Post</th>
+      <th>PIN</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th>Number</th>
+      <th>&nbsp;</th>
+    </tr>
+
+      {% for comp in data %}
+
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>&nbsp;{{ comp['name'] }} </td>
+        <td><img src="/static/photos/{{ comp['photo'] }}" alt="No image" width="100px" hight="100px"/></td>
+      <td>{{ comp['place'] }}&nbsp;</td>
+      <td>&nbsp;{{ comp['post'] }}</td>
+      <td>&nbsp;{{ comp['pin'] }}</td>
+      <td>&nbsp;{{ comp['email'] }}</td>
+      <td>&nbsp;{{ comp['website'] }}</td>
+      <td>&nbsp;{{ comp['phone'] }}</td>
+
+        {% if comp['type']=='pending' %}
+        
+        <td><a href="/company_approve/{{ comp['loginID'] }}">APPROVE</a>
+        <a href="company_reject/{{ comp['loginID'] }}">REJECT</a></td>
+
+        {% elif comp['type'] == 'Company' %}
+
+                <td><div align="center" style="color: green"><strong>APPROVED</strong></div></td>
+
+            {% else %}
+
+               <td><div align="center" style="color: red"><strong>REJECTED</strong></div></td>
+
+
+        {% endif %}
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

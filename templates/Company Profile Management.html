@@ -1,0 +1,50 @@
+{% extends 'company_panel.html' %}
+{% block body %}
+<form action="/update_company" method="post" name="form1" id="form1">
+  <table width="501" height="411" border="0">
+    <tr>
+      <td colspan="2"><div align="center"><img name="" src="../static/photos/{{ data['photo'] }}" width="246" height="168" alt="No Image" /><a href="/edit_company_photo">Change</a></div></td>
+    </tr>
+    <tr>
+      <td width="164">Name</td>
+      <td width="134"><label for="Name"></label>
+      <input type="text" name="Name" class="form-control" id="Name" value="{{ data['name'] }}" /></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label for="Place"></label>
+      <input type="text" name="Place" class="form-control" id="Place" value="{{ data['place'] }}" /></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label for="Post"></label>
+      <input type="text" name="Post" class="form-control" id="Post" value="{{ data['post'] }}"/></td>
+    </tr>
+    <tr>
+      <td>PIN</td>
+      <td><label for="pin"></label>
+      <input type="text" name="pin" class="form-control" id="pin"  value="{{ data['pin'] }}" /></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label for="email"></label>
+      <input type="text" name="email" class="form-control" id="email" value="{{ data['email'] }}" /></td>
+    </tr>
+    <tr>
+      <td>Website</td>
+      <td><label for="website"></label>
+      <input type="text" name="website" class="form-control" id="website" value="{{ data['website'] }}" /></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><label for="phone"></label>
+      <input type="text" name="phone" class="form-control" id="phone" value="{{ data['phone'] }}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" class="btn btn-primary" name="UPDATE" id="UPDATE" value="UPDATE" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

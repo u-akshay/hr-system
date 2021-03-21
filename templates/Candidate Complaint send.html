@@ -1,0 +1,15 @@
+{% extends 'candidate_panel.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Candidate_send_complaint_post">
+  <table width="543" border="0">
+    <tr>
+      <td width="173">Complaint</td>
+      <td width="354"><label for="Candidate Complaint"></label>
+          <textarea name="Candidate_Complaint" class="form-control" id="Candidate_Complaint" cols="60" rows="6"></textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" name="Candidate Send" class="btn btn-primary" id="Candidate Send" value="SEND" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

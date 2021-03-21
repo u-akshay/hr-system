@@ -1,0 +1,38 @@
+{% extends 'company_panel.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+<br/>
+    <br/>
+  <table width="412" class="table table-bord" border="1">
+    <tr>
+      <th width="43">Sl.No</th>
+      <th width="84">Name</th>
+      <th width="113">Dob</th>
+        <th width="113">Gender</th>
+        <th width="113">Place</th>
+        <th width="113">Email</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+
+
+      {% for i in data %}
+
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['Name'] }}</td>
+        <td> {{ i['dob'] }}</td>
+        <td> {{ i['gender'] }}</td>
+        <td> {{ i['place'] }}</td>
+        <td> {{ i['email'] }}</td>
+        <td> <a href="/more_infoc/{{ i['userID'] }}">More info</a></td>
+        <td> <a href="https://appr.tc/r/01122">Connect</a></td>
+
+
+    </tr>
+
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

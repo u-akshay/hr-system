@@ -1,0 +1,17 @@
+{% extends 'admin_panel.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/adminReplay_post">
+  <table class="table table-bord">
+    <tr>
+      <td width="78">Reply</td>
+      <td width="300"><label for="complaintReply"></label>
+          <textarea class="form-control" cols="100" rows="6" name="complaintReply" id="complaintReply" ></textarea></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td><input type="submit" class="btn btn-primary" name="send" id="send" value="send" ></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

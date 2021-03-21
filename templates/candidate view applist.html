@@ -1,0 +1,33 @@
+{% extends 'candidate_panel.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+<br/>
+<br/>
+  <table width="412" class="table table-bord" border="1">
+    <tr>
+      <th width="43">Sl.No</th>
+      <th width="84">Job Name</th>
+      <th width="113">Job Desciption&nbsp;</th>
+        <th width="113">Company&nbsp;</th>
+        <th width="113">Date&nbsp;</th>
+        <th width="113"> </th>
+    </tr>
+
+
+
+      {% for i in data %}
+
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['vacancyName'] }}</td>
+        <td> {{ i['jobdescription'] }}</td>
+        <td> {{ i['name'] }}</td>
+        <td> {{ i['date'] }}</td>
+        <td><a href="https://appr.tc/r/01122">Connect</a> </td>
+
+    </tr>
+
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

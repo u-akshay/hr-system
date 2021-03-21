@@ -1,0 +1,23 @@
+{% extends 'candidate_panel.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="0">
+    <tr>
+      <td><a href="/candidate_complaint"><input value="New Complaint" type="button" class="btn btn-success"/> </a></td>
+    </tr>
+  </table>
+<br/>
+<br/>
+<table width="600" border="1">
+    {% for i in data %}
+    <tr>
+        <td width="110"><b>COMPLAINT</b></td><td> {{ i['complaint'] }}</td>
+    </tr>
+    <tr>
+        <td><b>STATUS</b></td><td>{{ i['reply'] }}</td>
+    </tr>
+
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

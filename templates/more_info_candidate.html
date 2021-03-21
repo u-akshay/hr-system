@@ -1,0 +1,69 @@
+{% extends 'company_panel.html' %}
+{% block body %}
+<br/>
+<br/>
+
+<table width="441" border="0">
+   <tr>
+      <td colspan="2"><div align="center"><img name="" src="../static/photos/{{ data['photo'] }}" width="246" height="168" alt="No Image" /></div></td>
+    </tr>
+    <tr>
+      <td width="174">Name</td>
+      <td width="251">{{ data['Name'] }}</td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><p>
+        <label>
+          {{  data['gender']}}</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+        <td><label for="Candidate DOB">{{ data['dob'] }}</label></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+        <td><label for="Candidate email">{{ data['email'] }}</label></td>
+    </tr>
+    <tr>
+      <td>Mobile</td>
+        <td><label for="Candidate Mobile">{{ data['contactnumber'] }}</label></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+        <td><label for="Candidate Place">{{ data['place'] }}</label></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+        <td><label for="Candidate Post">{{ data['post'] }}</label></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+        <td><label for="Candidate Pin">{{ data['pin'] }}</label></td>
+    </tr>
+
+    <tr>
+      <td>Resume</td>
+      <td><label for="Candidate File"><a href="../static/resume/{{ data['resume'] }}">view Resume</a> </label>
+      </td>
+    </tr>
+  </table>
+    <br/>
+<h2>Skills</h2>
+ <table width="826" border="1">
+    <tr>
+      <td>sl no.</td>
+      <td>Skill</td>
+
+    </tr>
+     {%  for sk in skill %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp{{ sk['skillName'] }}</td>
+
+    </tr>
+     {% endfor %}
+  </table>
+{% endblock %}

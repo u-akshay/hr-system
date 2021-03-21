@@ -1,0 +1,81 @@
+{% extends 'candidate_panel.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+<br/>
+<br/>
+<h2>Best Vacancy predicted based on your skills</h2>
+  <table class="table table-bord">
+    <tr>
+      <th>Company name</th>
+      <th>Vacancy</th>
+      <th>No.of vacancy</th>
+      <th>Description</th>
+      <th>Skill</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+
+    <tr>
+      <td>&nbsp;{{ pr['name'] }} </td>
+        <td>{{ pr['vacancyName'] }}</td>
+      <td>{{ pr['numberofvacancy'] }}&nbsp;</td>
+      <td>&nbsp;{{ pr['jobdescription'] }}</td>
+      <td>&nbsp;{{ pr2 }}</td>
+      <td>&nbsp;{{ pr['created_date'] }}</td>
+       <td><a href="/applytable/{{ pr['ID'] }}">Apply Now</a></td>
+    </tr>
+  </table>
+<br/>
+<h2>Other Vacancies</h2>
+
+  <table width="412" border="1" class="table table-bord">
+    <tr>
+      <th width="43">ID</th>
+      <th width="84">Job Name</th>
+      <th width="113">Job Desciption&nbsp;</th>
+        <th width="113">Skills Needed&nbsp;</th>
+        <th width="113">Skills Matched&nbsp;</th>
+        <th width="113">Score&nbsp;</th>
+        <th width="113"> </th>
+    </tr>
+
+
+
+      {% for i in data %}
+
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['vacancyName'] }}</td>
+        <td> {{ i['jobdescription'] }}</td>
+     <td> {{ needed_skill_count[loop.index-1] }}</td>
+     <td> {{ user_skill_count[loop.index-1] }}</td>
+     <td> {{ skill_score[loop.index-1] }} %</td>
+
+      <td width="113">
+      {%   set ns = namespace(foo=false) %}
+      {% for j in c %}
+          {% if i['ID']==j['vacancyid'] %}
+             {% set ns.foo = True  %}
+          {% endif %}
+
+      {% endfor %}
+
+      {% if ns.foo %}
+          <p>Applied</p>
+      {% else %}
+
+          {% if  skill_score[loop.index-1]  > 20 %}
+              <a href="/applytable/{{ i['ID'] }}">Apply Now</a>
+          {% else  %}
+          <p>Not Applicable</p>
+          {% endif %}
+      {% endif %}
+      </td>
+
+
+    </tr>
+
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

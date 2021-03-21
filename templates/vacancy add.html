@@ -1,0 +1,38 @@
+{% extends 'company_panel.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/vaccancyAdd_post">
+  <table width="559" height="321" border="0">
+    <tr>
+      <td width="203">Vacancy Name</td>
+      <td width="291"><label for="vacancy name"></label>
+      <input type="text" class="form-control" name="vacancy_name" id="vacancy_name" /></td>
+    </tr>
+    <tr>
+      <td>No. of vacancy</td>
+      <td><label for="number of vacancy"></label>
+      <input type="text" class="form-control" name="number_of_vacancy" id="number_of_vacancy" /></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td><label for="description"></label>
+        <label for="textarea"></label>
+      <textarea name="description" class="form-control" id="description" cols="45" rows="5"></textarea></td>
+    </tr>
+    <tr>
+      <td>Skills</td>
+      <td>
+
+              {% for row in data %}
+
+                  <input type="checkbox" name="checkbox" value="{{ row['skillID'] }}" id="checkbox" />&nbsp;&nbsp;{{ row['skillName'] }}
+                  <br/>
+                {% endfor %}
+
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-primary" name="Save" id="Save" value="Submit" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

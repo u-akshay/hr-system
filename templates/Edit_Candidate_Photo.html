@@ -1,0 +1,20 @@
+{% extends 'candidate_panel.html' %}
+{% block body %}
+
+<form action="/update_candidate_photo" method="post" enctype="multipart/form-data" name="form1">
+  <div align="center">
+    <table width="400" height="83" border="0">
+      <tr>
+        <td width="77"><strong>Photo</strong></td>
+        <td width="307"><label for="fileField"></label>
+        <input type="file" name="fileField" class="form-control" id="fileField"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" name="button" class="btn btn-primary" id="button" value="Update"></td>
+      </tr>
+    </table>
+  </div>
+</form>
+
+{% endblock %}

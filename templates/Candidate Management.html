@@ -1,0 +1,67 @@
+{% extends 'candidate_panel.html' %}
+{% block body %}
+<form action="/update_candidate" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="441" border="0">
+   <tr>
+      <td colspan="2"><div align="center"><img name="" src="../static/photos/{{ data['photo'] }}" width="246" height="168" alt="No Image" /><a href="/edit_candidate_photo">Change</a></div></td>
+    </tr>
+    <tr>
+      <td width="174">Name</td>
+      <td width="251"><label for="Candidate Name"></label>
+      <input type="text" name="CandidateName" class="form-control" id="Candidate Name" value="{{ data['Name'] }}" /></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><p>
+        <label>
+          <input type="radio" name="CandidateGender" class="form-control" value="Male" {% if data['gender']=='Male' %} checked="checked" {% endif %}    id="CandidateGender_0" />
+          M</label>
+        <br />
+        <label>
+          <input type="radio" name="CandidateGender" class="form-control" value="Female"   {% if data['gender']=='Female' %} checked="checked" {% endif %}   id="CandidateGender_1" />
+          F</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+      <td><label for="Candidate DOB"></label>
+      <input type="date" name="CandidateDOB" class="form-control" id="Candidate DOB" value="{{ data['dob'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label for="Candidate email"></label>
+      <input type="text" name="Candidateemail" class="form-control" id="Candidate email" value="{{ data['email'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Mobile</td>
+      <td><label for="Candidate Mobile"></label>
+      <input type="text" name="CandidateMobile" class="form-control" id="Candidate Mobile" value="{{ data['contactnumber'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label for="Candidate Place"></label>
+      <input type="text" name="CandidatePlace" class="form-control" id="Candidate Place" value="{{ data['place'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label for="Candidate Post"></label>
+      <input type="text" name="CandidatePost" class="form-control" id="Candidate Post" value="{{ data['post'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><label for="Candidate Pin"></label>
+      <input type="text" name="CandidatePin" class="form-control" id="Candidate Pin"  value="{{ data['pin'] }}"/></td>
+    </tr>
+
+    <tr>
+      <td>File</td>
+      <td><label for="Candidate File"></label>
+      <input type="file" name="CandidateFile" class="form-control" id="Candidate File"  /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" class="btn btn-primary" name="Candidate Edit" id="Candidate Edit" value="UPDATE" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
